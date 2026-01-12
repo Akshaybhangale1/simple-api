@@ -76,6 +76,9 @@ jobs:
         aws eks update-kubeconfig \
         --name ${{ secrets.EKS_CLUSTER_NAME }} \
         --region ap-south-1
+        
+    - name: Test access
+      run: kubectl get nodes  
 
 
 
