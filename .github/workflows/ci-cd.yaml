@@ -68,14 +68,14 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }} 
+        aws-region: ap-south-1
 
     # Update kubeconfig for EKS
     - name: Update kubeconfig
       run: |
         aws eks update-kubeconfig \
         --name ${{ secrets.EKS_CLUSTER_NAME }} \
-        --region $AWS_REGION
+        --region ap-south-1
 
 
 
