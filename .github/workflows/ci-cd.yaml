@@ -73,9 +73,10 @@ jobs:
     # Update kubeconfig for EKS
     - name: Update kubeconfig
       run: |
-        aws eks update-kubeconfig \
-        --name $EKS_CLUSTER \
-        --region $AWS_REGION
+        eks update-kubeconfig \
+        --name ${{ secrets.EKS_CLUSTER_NAME }} \
+        --region ${{ secrets.AWS_REGION }}
+
 
     # Deploy BLUE (if not exists)
     - name: Deploy BLUE version
