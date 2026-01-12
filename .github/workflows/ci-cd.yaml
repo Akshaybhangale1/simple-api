@@ -8,7 +8,7 @@ on:
 env:
   APP_NAME: simple-api
   DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/simple-api
-  AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_REGION: ap-south-1
   EKS_CLUSTER: ${{ secrets.EKS_CLUSTER_NAME }}
 
 jobs:
@@ -68,14 +68,15 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }} 
+        aws-region: ${{ env.AWS_REGION }} 
 
     # Update kubeconfig for EKS
     - name: Update kubeconfig
       run: |
-        eks update-kubeconfig \
+        aws eks update-kubeconfig \
         --name ${{ secrets.EKS_CLUSTER_NAME }} \
-        --region ${{ secrets.AWS_REGION }}
+        --region $AWS_REGION
+
 
 
     # Deploy BLUE (if not exists)
