@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-api-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-api
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: simple-api
+        version: blue
+    spec:
+      containers:
+      - name: app
+        image: dockerhub-username/simple-api:blue
+        ports:
+        - containerPort: 8080
