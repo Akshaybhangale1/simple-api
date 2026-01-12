@@ -43,14 +43,14 @@ jobs:
     # Build & Push BLUE image
     - name: Build & Push BLUE image
       run: |
-        docker build -t $DOCKER_IMAGE:blue .
-        docker push $DOCKER_IMAGE:blue
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/simple-api:blue .
+        docker push ${{ secrets.DOCKER_USERNAME }}/simple-api:blue
 
     # Build & Push GREEN image
     - name: Build & Push GREEN image
       run: |
-        docker build -t $DOCKER_IMAGE:green .
-        docker push $DOCKER_IMAGE:green
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/simple-api:green .
+        docker push ${{ secrets.DOCKER_USERNAME }}/simple-api:green
 
   cd:
     name: CD - Deploy to EKS
