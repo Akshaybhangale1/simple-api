@@ -131,7 +131,4 @@ Optional Future Improvement
 
 7. Conclusion
 
-This project demonstrates real‑world DevOps practices including CI/CD automation, Kubernetes Blue‑Green deployments, monitoring with CloudWatch, and secure secret management on AWS EKS.    
-=======
-
->>>>>>> 9a315695164b2ef8f922c2e21a753a7c8e2c3e30
+This project demonstrates real‑world DevOps practices including CI/CD automation, Kubernetes Blue‑Green deployments, monitoring with CloudWatch, and secure secret management on AWS EKS.
