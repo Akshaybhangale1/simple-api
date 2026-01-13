@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: simple-api
-        image: <YOUR_DOCKER_USERNAME>/simple-api:blue
+        image: akshaybhangale1/simple-api:green
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
