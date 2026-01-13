@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: dockerhub-username/simple-api:green
+        image: akshaybhangale1/simple-api:green
         ports:
         - containerPort: 8080
