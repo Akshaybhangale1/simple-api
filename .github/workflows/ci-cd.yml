@@ -85,7 +85,14 @@ jobs:
           kubectl apply -f k8s/deployment-green.yaml
           kubectl rollout status deployment/simple-api-green
 
+      - name: Create or Update Service
+        run: |
+          kubectl apply -f k8s/service.yaml --namespace default
+   
+
       - name: Switch traffic to GREEN
         run: |
           kubectl patch service simple-api \
-            -p '{"spec":{"selector":{"app":"simple-api","version":"green"}}}'
+           -n default \
+           -p '{"spec":{"selector":{"app":"simple-api","version":"green"}}}'
+
