@@ -1,5 +1,4 @@
-Simple Api – Eks Blue Green Deployment 
-Simple API – EKS Blue‑Green Deployment on AWS
+Simple API – EKS Blue‑Green Deployment on AWS EKS
 1. Overview
 
 This project demonstrates a production‑ready DevOps setup for a simple Python API deployed on Amazon EKS using Blue‑Green deployment and GitHub Actions CI/CD.
