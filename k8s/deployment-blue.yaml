@@ -15,7 +15,22 @@ spec:
         version: blue
     spec:
       containers:
-      - name: app
-        image: dockerhub-username/simple-api:blue
+      - name: simple-api
+        image: <YOUR_DOCKER_USERNAME>/simple-api:blue
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
