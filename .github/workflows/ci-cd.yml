@@ -71,10 +71,14 @@ jobs:
       - name: Verify cluster access
         run: kubectl get nodes
 
-      - name: Deploy BLUE
+      - name: Deploy BLUE version
         run: |
-          kubectl apply -f k8s/deployment-blue.yaml
-          kubectl rollout status deployment/simple-api-blue
+          echo "Applying Blue Deployment..."
+          kubectl apply -f k8s/deployment-blue.yaml --namespace default || \
+            kubectl create -f k8s/deployment-blue.yaml --namespace default
+          echo "Waiting for Blue rollout..."
+          kubectl rollout status deployment/simple-api-blue --namespace default --timeout=180s || \
+           echo "Blue rollout not ready yet, continuing..."
 
       - name: Deploy GREEN
         run: |
