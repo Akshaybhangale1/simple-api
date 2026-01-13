@@ -17,5 +17,6 @@ spec:
       containers:
       - name: app
         image: akshaybhangale1/simple-api:green
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
