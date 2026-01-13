@@ -38,44 +38,32 @@ Users / Client
 CI (Continuous Integration)
 
 Triggered on every push to the main branch:
-
   1.Checkout source code
-
   2.Setup Python environment
-
   3.Install dependencies and run unit tests
-
   4.Build Docker images:
      simple-api:blue
      simple-api:green
-
   5.Push images to Docker Hub
 
 CD (Continuous Deployment)
 After CI success:
-
   1.Authenticate to AWS using GitHub Secrets
-
   2.Update kubeconfig for EKS cluster
-
   3.Deploy Blue version (if not present)
-
   4.Deploy Green version (new release)
-
   5.Wait for Green pods to become healthy
-
   6.Switch Kubernetes Service traffic to Green deployment
-
 This approach ensures zero‑downtime deployments.
 
 
 4. Deployment Steps
 Prerequisites
 
-AWS Account
-EKS Cluster with worker nodes
-Docker Hub account
-GitHub repository
+  1.AWS Account
+  2.EKS Cluster with worker nodes
+  3.Docker Hub account
+  4.GitHub repository
 
 Steps
   1.Clone the repository
